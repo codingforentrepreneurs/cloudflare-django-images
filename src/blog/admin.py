@@ -17,7 +17,7 @@ class BlogPostAdmin(admin.ModelAdmin):
         if not obj.image:
             return "No image"
         cloudflare_id = obj.image.cloudflare_id
-        img_url = get_image_url_from_cloudflare(cloudflare_id)
+        img_url = get_image_url_from_cloudflare(cloudflare_id, variant='admin')
         img_html = f'<img src="{img_url}" width="320" />'
         return format_html(img_html)
 

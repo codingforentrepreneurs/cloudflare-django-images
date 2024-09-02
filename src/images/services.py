@@ -13,7 +13,12 @@ def upload_image_to_cloudflare(image_file):
     response.raise_for_status()
     return response.json()["result"]["id"]
 
+ALLOWED_VARIANTS = ['public', 'admin']
+
 def get_image_url_from_cloudflare(image_id, variant="public"):
     url = settings.CLOUDFLARE_IMAGES_DOMAIN
     account_hash = settings.CLOUDFLARE_ACCOUNT_HASH
-    return f"https://{url}/{account_hash}/{image_id}/{variant}"
+    final_variant = 'public'
+    if variant in ALLOWED_VARIANTS:
+        final_variant = variant
+    return f"https://{url}/{account_hash}/{image_id}/{final_variant}"
