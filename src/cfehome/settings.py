@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-_uhixdg%vvp0a1k2)g#2zw@r5oi@h%!pin3l%rzi*1#c95yo4@"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DJANGO_DEBUG", cast=bool, default=True)
 
 ALLOWED_HOSTS = []
 
@@ -123,3 +124,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+
+CLOUDFLARE_ACCOUNT_ID = config('CLOUDFLARE_ACCOUNT_ID')
+CLOUDFLARE_API_KEY = config('CLOUDFLARE_API_KEY')
+CLOUDFLARE_ACCOUNT_HASH = config('CLOUDFLARE_ACCOUNT_HASH')
+# os.environ
+CLOUDFLARE_IMAGES_DOMAIN=config("CLOUDFLARE_IMAGES_DOMAIN", default="imagedelivery.net")
+CLOUDFLARE_EMAIL = config('CLOUDFLARE_EMAIL')
