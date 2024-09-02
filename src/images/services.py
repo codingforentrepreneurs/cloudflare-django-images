@@ -13,7 +13,7 @@ def upload_image_to_cloudflare(image_file):
     response.raise_for_status()
     return response.json()["result"]["id"]
 
-ALLOWED_VARIANTS = ['public', 'admin']
+ALLOWED_VARIANTS = ['public', 'admin', 'adminDemo']
 
 def get_image_url_from_cloudflare(image_id, variant="public"):
     url = settings.CLOUDFLARE_IMAGES_DOMAIN
