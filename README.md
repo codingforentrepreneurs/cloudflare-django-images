@@ -1,2 +1,3 @@
-# cloudflare-django-images
-Tutorial on how to integrate Cloudflare Images with Python and Django
+# Cloudflare Images with Python and Django
+
+Learn how at the in-depth [blog post](https://www.codingforentrepreneurs.com/blog/django-cloudflare-images/).
